@@ -1,4 +1,4 @@
-# [Caddydoc 中文文档] (http://www.caddydoc.com/docs/)
+# [Caddydoc 中文文档](http://www.caddydoc.com/docs/)
 欢迎使用Caddydoc 文档！ [![](https://img.shields.io/github/forks/0532/nodejs.svg)](https://github.com/haizhilin2013/caddydoc) [![](https://img.shields.io/github/stars/0532/nodejs.svg)](https://github.com/haizhilin2013/caddydoc/stargazers)
 
 > Caddy 中文地址： [http://www.caddydoc.com/docs/](http://www.caddydoc.com/docs/)  
