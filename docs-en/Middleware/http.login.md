@@ -4,12 +4,13 @@ Login directive for Caddy, based on github.com/tarent/loginsrv. The login is che
 
 The following providers (login backends) are supported:
 
-Htpasswd
-OSIAM
-Simple (user/password pairs by configuration)
-Github Oauth2 Login
+* Htpasswd
+* OSIAM
+* Simple (user/password pairs by configuration)
+* Github Oauth2 Login
 ## Examples
-Simple example
+**Simple example**
+```
 jwt {
     path /
     allow sub bob
@@ -18,9 +19,11 @@ jwt {
 login / {
          simple bob=secret,alice=secret
 }
+```
 The root context / is protected by the jwt middleware. The login is possible for the users alice and bob.
 
-Users from htpasswd file
+**Users from htpasswd file**
+```
 header /private Cache-Control "no-cache, no-store, must-revalidate"
   
 jwt {
@@ -33,9 +36,11 @@ login {
   success_url /private
   htpasswd file=passwords
 }
+```
 Protection of the path /private. The users are taken from the htpasswd file.
 
-Github example with more customisation
+**Github example with more customisation**
+```
 jwt {
   path /my-account
   redirect /login
@@ -50,4 +55,5 @@ login {
   jwt_expiry 24h
   cookie_expiry 2400h
 }
+```
 Github login, where the github api credentials are taken from environment variables. Template, redirect URLs and expiry times are configured.

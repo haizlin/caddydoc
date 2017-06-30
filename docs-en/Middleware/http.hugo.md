@@ -7,20 +7,27 @@ Using this plugin, you won't need to have your own computer to edit posts, neith
 Requirements: you need to have the hugo executable in your PATH. You can download it from its official page.
 
 ## Examples
-Basic Usage
+**Basic Usage**
+```
 root      public
 basicauth /admin user pass
 hugo
+```
+
 Display the generated website in public, protects the /admin URL with the defined credentials, and provides an interface at /admin with hugo plugin.
 
-Flags and site root
+**Flags and site root**
+```
 root ./dist
 hugo ./site {
     flag destination ../dist
 }
+```
 Hugo website is at ./site and the flag destination is added to build the site to another directory.
 
-Change UI URL
+**Change UI URL**
+```
 root  public
 hugo  .   /cms
+```
 Changes the admin interface URL to /cms while the website files are located at . (default).

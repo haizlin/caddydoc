@@ -3,7 +3,8 @@
 mailout - a SMTP client email middleware with PGP encryption. Post form data from your website to your defined endpoint and receive the posted data as nicely formatted or even encrypted email.
 
 ## Examples
-Minimal configuration with PGP support
+**Minimal configuration with PGP support**
+```
 mailout /mailout {
         maillog         /var/log/caddy/mailout/
         errorlog        /var/log/caddy/mailout/
@@ -22,4 +23,5 @@ mailout /mailout {
         ratelimit_interval 24h
         ratelimit_capacity 100
 }
+```
 A full working example which sends the PGP encrypted emails via GMail. The public PGP key for the receiver email address (cyr1ll@5chumach3r.fm) gets loaded from keybase.io. For more details please have a look on the project homepage.

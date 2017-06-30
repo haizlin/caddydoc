@@ -5,11 +5,16 @@ This plugin allows you to see the actual client IP from X-Forwarded-For headers 
 Implements security measures so that X-Forwarded-For cannot be spoofed from unauthorized IP ranges.
 
 ## Examples
-Accept X-Forwarded-For from known IPs only
+**Accept X-Forwarded-For from known IPs only**
+```
 realip {
     from 1.2.3.4/32
     from 2.3.4.5/32
 }
-Cloudflare Preset
+```
+
+**Cloudflare Preset**
+```
 realip cloudflare
+```
 Automatically adds cloudflare ips to allowed set.
