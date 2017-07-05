@@ -42,8 +42,8 @@ basicauth /secret Bob hiccup
 ```
 basicauth "Mary Lou" milkshakes {
 	realm "Mary Lou's documents"
-    /notes-for-mary-lou.txt
-    /marylou-files
-    /another-file.txt
+	/notes-for-mary-lou.txt
+	/marylou-files
+	/another-file.txt
 }
 ```
