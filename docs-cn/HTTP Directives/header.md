@@ -1,7 +1,7 @@
 # http.header
 header可以控制响应的头信息。
 
-请注意，如果你希望从代理后端删除响应头，则必须在 [proxy](#proxy.md) 指令中执行此操作。
+请注意，如果你希望从代理后端删除响应头，则必须在 [proxy](../proxy.md) 指令中执行此操作。
 
 ## 语法
 ```
@@ -10,7 +10,7 @@ header path name value
 
 *  **path** 匹配基本的路径
 *  **name** 是字段的名称，前缀用连字符(-)删除头或加号(+)来追加而不是覆盖。
-*  **value** 是字段的值, 也可以使用[placeholders(占位符)](#placeholders.md)插入动态值。
+*  **value** 是字段的值, 也可以使用[placeholders(占位符)](../placeholders.md)插入动态值。
 
 
 This directive can be used multiple times, or you can group multiple custom header fields for the same path:
