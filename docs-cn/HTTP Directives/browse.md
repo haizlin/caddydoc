@@ -37,7 +37,7 @@ browse [path [tplfile]]
 
 ...但默认模板会更好。
 
-Notice that the name and URL are sanitized for safe rendering in a browser. Templates are presumed trusted, so if your file names are not trusted, be sure they are escaped for use in HTML documents.
+Notice that the name and URL are sanitized for safe rendering in a browser. Templates are presumed trusted, so if your file names are not trusted, be sure they are escaped for use in HTML documents.  
 请注意，名称和URL已经被清理，以便在浏览器中进行安全渲染。 假设模板是可信任的，所以如果您的文件名不受信任，请确保它们被转义以用于HTML文档。
 
 ## JSON响应
