@@ -19,12 +19,10 @@ gzip {
 }
 ```
 
-extensions... is a space-separated list of file extensions to compress. Supports wildcard *	to match all extensions.
-*  **extensions...** 用于压缩以空格分隔的的文件扩展名的列表,支持通配符`*`以匹配所有扩展。
-paths is a space-separated list of paths in which not to compress.
-*  **paths** 是空格分隔的路径列表，其中不进行压缩。
-compression_level is a number from 1 (best speed) to 9 (best compression). Default is 9.
-min_bytes is the minimum number of bytes in a response needed before compression will happen. Default is no minimum length.
+*  **extensions...** 以空格分隔的文件扩展用于压缩，支持通配符`*`以匹配所有扩展。
+*  **paths** 以空格分隔不压缩的路径列表。 
+*  **compression_level** 是从1（最快速度）到9（最佳压缩）的数字, 默认是9。
+*  **min_bytes** 是在压缩发生之前响应需要的最小字节，默认值不是最小长度。
 
 ## 例子
 开启gzip压缩：
@@ -33,8 +31,7 @@ min_bytes is the minimum number of bytes in a response needed before compression
 gzip
 ```
 
-Enable very fast but minimal compression except in the /images and /videos folders (note, however, that images and videos will not be gzipped anyway):
-启用非常快速但最小的压缩，除了在/images和/videos文件夹（注意，但图像和视频不会gzip压缩）
+启用了快速但最小的压缩，除了在/images和/videos文件夹（注意，无论如何图像和视频都不会gzip压缩）
 
 ```
 gzip {
