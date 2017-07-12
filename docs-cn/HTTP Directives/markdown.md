@@ -1,6 +1,5 @@
-# http.markdown
-markdown serves Markdown files as HTML pages on demand. You can specify whole custom templates or just the CSS and JavaScript files to be used on the pages to give them a custom look and behavior.
-markdown将[Markdown](http://daringfireball.net/projects/markdown/)文件作为HTML页面提供。 您可以指定整个自定义模板，也可以指定要在页面上使用的CSS和JavaScript文件，以给他们一个自定义的外观和行为。
+# http.markdown 
+markdown 将[Markdown](http://daringfireball.net/projects/markdown/)文件作输出为HTML页面，你可以指定整个自定义模板，或者也可以指定要在页面上使用的CSS和JavaScript文件，以给他们一个自定义的外观和行为。
 
 ## 语法
 ```
@@ -8,18 +7,26 @@ markdown [basepath] {
 	ext      extensions...
 	[css|js] file
 	template [name] path
+	templatedir defaultpath
 }
 ```
 
-basepath is the base path to match. Markdown will not activate if the request URL is not prefixed with this path. Default is site root.
-extensions... is a space-delimited list of file extensions to treat as Markdown (defaults to .md, .markdown, and .mdown); this is different from the ext directive which assumes a missing file extension.
-css indicates that the next argument is a CSS file to use on the page.
-js indicates that the next argument is a JavaScript file to include on the page.
-file is the JS or CSS file to add to the page.
+*  **basepath** 是基本路径匹配，如果请求的URL不以这个路径前缀，则Markdown不会激活，默认是站点根目录。
+*  **extensions...** 是以空格分隔的文件扩展名列表，用作Markdown（默认是.md，.markdown和.mdown）。这和使用默认文件扩展名的ext指令不同。
+*  **css** 表示下一个参数是要在页面上使用的CSS文件。
+*  **js** 表示下一个参数是要包含在页面中的JavaScript文件。
+*  **file** 添加到页面中的JS或CSS文件。
 template defines a template with the given name to be at the given path. To specify the default template, omit name. Markdown files can choose a template by using the name in its front matter.
+*  **template** 定义具有给定名称的模板位于给定路径，如果要指定默认模板，请忽略名称。 Markdown文件可以通过使用其前面的名称来选择一个模板。
+
+templatedir sets the default path with the given defaultpath to be used when listing templates.
+*  **templatedir** 将默认路径设置为在列出模板时使用的给定默认路径。
+
 You can use the js and css arguments more than once to add more files to the default template. If you want to accept defaults, you should completely omit the curly braces.
+你可以多次使用js和css参数将更多文件添加到默认模板，如果你想接受默认值，你应该完全省略大括号。
 
 Front Matter (Document Metadata)
+## 前页（文件元数据）
 Markdown files may begin with front matter, which is a specially-formatted block of metadata about the file. For example, it could describe the HTML template to use to render the file, or define the contents of the title tag. Front matter can be in YAML, TOML, or JSON formats.
 
 TOML front matter starts and ends with +++:
