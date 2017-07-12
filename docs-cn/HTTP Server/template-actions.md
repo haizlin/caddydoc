@@ -238,6 +238,5 @@ RawQuery 返回查询字符串，你可以使用Host，Scheme，Fragment，Strin
 * or 返回第一个非空参数或最后一个参数
 * and 返回第一个空参数或最后一个参数
 
-
 ## 深入阅读  
 这些只是你可以做的几个例子，如果你需要更多的模板功能，请阅读 [text/template](http://golang.org/pkg/text/template/) 包获得更详细的信息。
