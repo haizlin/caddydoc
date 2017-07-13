@@ -1,21 +1,17 @@
 # http.limits
-limits sets limits on HTTP requests that are accepted. The request header and body sizes can be limited.
-limits 对接受的HTTP请求设置限制，可以限制请求标题和正文大小。
+limits 对接受的HTTP请求设置限制，可以限制请求头和请求体的大小。
 
-The request header size can be capped at some number of bytes. Due to the way the Go libraries work, one limit applies to all sites on the same listener (if there are multiple configured, the minimum limit is selected).
+请求头的大小可以被限制在一定的字节数，由于Go库的工作方式，一个限制适用于同一个侦听上的所有站点（如果有多个配置，则选择了最小限制）。
 
-Request body sizes can also be limited. When the number of bytes read from a request body exceeds the limit, reading will terminate and an error will be sent to the client. (Technically, it depends on	each middleware that reads a request body to handle the error properly, but standard Caddy directives should respond with HTTP 413.) By default, there is no size limit.
+请求体的大小也可以受到限制，当从请求体读取的字节数超过限制时，读取将终止，并将错误发送给客户端。 （从技术上讲，它取决于读取请求体的每个中间件正确地处理错误，但标准的Caddy指令应该使用HTTP 413进行响应。）默认情况下，它是没有大小的限制。
 
-The size values must be positive integers and are interpreted as bytes unless a unit is given. Valid examples: 3500 (3,500 bytes), 500kb (500 kilobytes), 10mb (10 megabytes),  1gb (1 gigabyte).
+大小值必须是正整数，并且可以转换为字节，除非给出单位。有效的示例：3500（3,500字节），500kb（500千字节），10mb（10兆字节），1gb（1千兆字节）。
 
 ## 语法
 ```
 limits size
 ```
-
-size is the maximum size for both headers and bodies (individually) for the whole site.
-*  **size** 是整个站点的头和主体（单独）的最大大小。
-
+*  **size** 是整个站点的头和主体（单独）的最大尺寸。
 
 为了更多的控制，你可以使用语句块：
 
@@ -27,17 +23,16 @@ limits {
 ```
 
 *  **header** 限制请求头的大小。
-body restricts the size of a request body, optionally only for a base path.
+*  **body** 限制请求体的大小，仅用在哪个路径上是可选的。
 
 ## 例子
-Limit all request headers and bodies to 7.5 kilobytes:
-将所有请求标头和正文限制为7.5千字节：
+将所有请求头和正文限制为7.5KB：
 
 ```
 limits 7500
 ```
 
-Limit only request bodies within /upload to 50 megabytes:
+限制路径/upload上请求体的大小为50 MB：
 
 ```
 limits {
@@ -45,7 +40,6 @@ limits {
 }
 ```
 
-Various limits:
 各种限制：
 
 ```
