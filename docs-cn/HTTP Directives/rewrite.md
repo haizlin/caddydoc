@@ -1,9 +1,7 @@
 # http.rewrite
-rewrite performs internal URL rewriting. This allows the client to request one resource but actually be served another without an HTTP redirect. Rewrites are invisible to the client.
-重写执行内部URL重写，这允许客户端请求一个资源，但实际上是另一个资源，而不需要HTTP重定向，重写是客户不可见的。
+rewrite 执行内部URL重写，允许客户端请求一个资源，但实际上是另一个资源，而不需要HTTP重定向，重写对于客户端是不可见的。
 
-There are simple rewrites (fast) and complex rewrites (slower), but they're powerful enough to accommodate most dynamic back-end applications.
-有简单的重写（快速）和复杂的重写（较慢），但它们足够强大以适应大多数动态后端应用程序。
+有简单的重写（快速）和复杂的重写（较慢），但它们足够强大以适应大多数的动态应用程序。
 
 ## 语法
 ```
@@ -24,25 +22,28 @@ rewrite [basepath] {
 }
 ```
 
-basepath is the base path to match before rewriting with regular expression. Default is /.
-regexp (shorthand: r) will match the path with the given regular expression pattern. Extremely high-load servers should avoid using regular expressions.
+*  **basepath** 是用正则表达式重写之前匹配的基础路径，默认是/。
+*  **regexp** （简写是：r）将匹配给定正则表达式模式的路径，超高负载的服务器应避免使用正则表达式。
 extensions... is a space-separated list of file extensions (prepended with a dot) to include or ignore. Prefix an extension with ! to exclude an extension. The forward slash  / symbol matches paths without file extensions.
-if specifies a rewrite condition. Multiple ifs are AND-ed together. a and b are any string and may use request placeholders. cond is the condition, with possible values explained below.
-if_op specifies how the ifs are evaluated; the default is and.
+*  **extensions...** 是包含或忽略的文件扩展名（带点）的空格分隔列表。 前缀是!时则排除扩展名，正斜杠/符号匹配没有文件扩展名的路径。
+*  **if** 指定了重写的条件，多个ifs和AND结合在一起，a和b是任意字符串，可以使用[请求占位符](../HTTP Server/placeholders)。 cond是条件，可能的值如下。
+*  **if_op** 指定ifs如何求值，默认是and。
 destinations... is one or more space-separated paths to rewrite to, with support for request placeholders as well as numbered regular expression captures such as {1}, {2}, etc. Rewrite will check each destination in order and rewrite to the first destination that exists. Each one is checked as a file or, if ends with /, as a directory. The last destination will act as default if no other destination exists.
 
+*  **destinations...** 是一个或多个以空格分隔的路径来重写，支持[请求占位符](../HTTP Server/placeholders)以及编号的正则表达式捕获，如{1}，{2}等。重写将按顺序检查每个目标位置并重写 存在的第一个目的地。 每个作为文件检查，或者以/作为目录结尾。 如果没有其他目的地，最后一个目的地将作为默认值。
+
 ## "if" 条件
-The if keyword is a powerful way to describe your rule. It takes the format a cond b, where the values a and b are separated by cond, a condition. The condition can be any of these:
+if关键字是书写规则的强大方式，它的格式是a cond b，其中值a和b由cond条件分隔，条件可以是以下任何一种：
 
 * `is` = a 等于 b
 * `not` = a 不等于 b
-* `has` = a has b as a substring (b is a substring of a)
-* `not_has` = b is NOT a substring of a
-* `starts_with` = b is a prefix of a
-* `not_starts_with` = b is NOT a prefix of a
-* `ends_with` = b is a suffix of a
-* `match` = a matches b, where b is a regular expression
-* `not_match` = a does NOT match b, where b is a regular expression
+* `has` = a有b作为子字符串（b是a的子字符串）
+* `not_has` = b不是a的子字符串
+* `starts_with` = b是a的前缀
+* `not_starts_with` = b不是a的前缀
+* `ends_with` = b是a的后缀
+* `match` = a匹配b，其中b是个正则表达式
+* `not_match` = a不匹配b，其中b是个正则表达式
 
 # 例子
 将所有内容重写为/index.php。 （rewrite / /index.php{uri} 只匹配/）
@@ -60,7 +61,7 @@ rewrite / {
 rewrite /mobile /mobile/index
 ```
 
-If the file is not favicon.ico and it is not a valid file or directory, serve the maintenance page if present, or finally, rewrite to index.php.
+If the file is not favicon.ico and it is not a valid file or directory, serve the maintenance page if present, or finally, rewrite to index.php.  
 如果文件不是favicon.ico，并且它不是有效的文件或目录，请提供维护页面（如果存在），或者最后重写为index.php。
 
 ```
@@ -70,7 +71,8 @@ rewrite {
 }
 ```
 
-If user agent includes "mobile" and path is not a valid file/directory, rewrite to the mobile index page.
+If user agent includes "mobile" and path is not a valid file/directory, rewrite to the mobile index page.  
+如果用户代理包含了"mobile"字符串，并且路径不是有效的文件/目录，请重写到移动索引页。
 
 ```
 rewrite {

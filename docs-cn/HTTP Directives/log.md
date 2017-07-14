@@ -34,7 +34,7 @@ log path file [format] {
 }
 ```
 
-* rotate_size 轮转之前日志文件必须达到的大小（以兆字节为单位）。
+*  **rotate_size** 轮转之前日志文件必须达到的大小（以兆字节为单位）。
 *  **rotate_age** 保留轮转日志文件的天数。
 *  **rotate_keep** 要保留的最大轮转日志文件数，旧的轮转日志文件被切割。
 
@@ -56,7 +56,7 @@ log path file [format] {
 ```
 
 ## 日记的位置 <span id="destination"></span>
-日记的位置可以是以下几点：
+日记的位置可以是以下几种：
 
 * 相对于当前工作目录的文件名
 * `stdout` 或 `stderr` 写入控制台
@@ -72,9 +72,9 @@ log path file [format] {
 日志有可能会把磁盘填满，为了减少这种情况，请求日志根据这个默认的配置自动轮转（"rolled"）：
 
 ```
-rotate_size 100 # Rotate a log when it reaches 100 MB
-rotate_age  14  # Keep rotated log files for 14 days
-rotate_keep 10  # Keep at most 10 rotated log files
+rotate_size 100 # 当日志达到100 MB时轮转日志
+rotate_age  14  # 保持轮转日志文件14天
+rotate_keep 10  # 最多保留10个轮转的日志文件
 ```
 您可以指定这些子目录来自定义日志轮转。
 
@@ -103,8 +103,8 @@ log / stdout "{combined}"
 关于轮转：
 ```
 log requests.log {
-	rotate_size 50 # Rotate after 50 MB
-	rotate_age  90 # Keep rotated files for 90 days
-	rotate_keep 20 # Keep at most 20 log files
+	rotate_size 50 # 50 MB后轮转
+	rotate_age  90 # 保持轮转文件90天
+	rotate_keep 20 # 最多保留20个轮转的日志文件
 }
 ```

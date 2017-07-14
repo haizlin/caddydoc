@@ -80,7 +80,7 @@ Caddy 是一款使用 Go 语言的简单易用的单文件网页服务器，原�
 
 > 定期更新，谢谢各位辛勤贡献！！！
 
-* [DenysGeng](https://github.com/)
+* [cnphpbb](https://github.com/cnphpbb)
 
 > 此文档由 caddydoc 社区 翻译整理，翻译权由 caddydoc 社区 享有。
 
