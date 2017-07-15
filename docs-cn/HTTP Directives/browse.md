@@ -21,16 +21,17 @@ browse [path [tplfile]]
 这是一个非常简单的模板示例：
 
 ```
+<!-- 提示：以下要把反斜杠去掉 -->
 <html>
 	<head>
-		<title>{{html .Name}}</title>
+		<title>\{\{ html .Name \}\}</title>
 	</head>
 	<body>
-		{{if .CanGoUp}}<a href="..">Up one level</a><br>{{end}}
-		<h1>{{.Path}}</h1>
-		{{range .Items}}
-		<a href="{{html .URL}}">{{html .Name}}</a><br>
-		{{end}}
+		\{\{if .CanGoUp\}\}<a href="..">Up one level</a><br>\{\{end\}\}
+		<h1>\{\{.Path\}\}</h1>
+		\{\{range .Items\}\}
+		<a href="{{html .URL}}">\{\{html .Name\}\}</a><br>
+		\{\{end\}\}
 	</body>
 </html> 
 ```
