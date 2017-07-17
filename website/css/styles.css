@@ -269,6 +269,10 @@ pre:before {
   font-weight: bold;
 }
 
+.content-detail{
+  background: #f7f6f6;
+}
+
 .content-detail h1{
   font-size: 26px;
 }
