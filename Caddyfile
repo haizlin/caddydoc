@@ -1,0 +1,12 @@
+:2017 {
+	# root /website
+	templates / .html
+
+	markdown / {
+		ext .md
+		css /css/blog.css
+		js  /js/blog.js
+	}
+
+	errors errors.log
+}

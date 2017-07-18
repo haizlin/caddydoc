@@ -1,0 +1,216 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Caddy 中文文档</title>
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+	<div class="redBorder"></div>
+	<div class="greenBorder"></div>
+	<div class="yellowBorder"></div>
+	<div id="wrapper">
+		<nav>	
+			<dl>
+			</dl>
+		</nav>
+		
+		<div id="contentWrapper">
+			<h1 id="mainHeader">Caddy 中文文档</h1>
+			<h2 id="introText">此文档包含了用Caddy创建漂亮图表的所有知识。</h2>
+			<article id="gettingStarted">
+				<h1>使用Caddy</h1>
+				<h2>Getting Started →</h2>
+				<h2>命令行界面</h2>
+				<h2>Caddyfile 语法</h2>
+				<p>内容<code>Chart</code>变量。</p>
+				<pre data-type="html"><code>……。</code></pre>
+			</article>	
+			
+			<article id="lineChart">
+				<h1>HTTP 服务</h1>
+				<h2>HTTP Caddyfile</h2>
+				<h2>自动 HTTPS</h2>
+				<h2>MITM Detection</h2>
+				<h2>占位符</h2>
+				<h2>Template Actions</h2>
+				
+				<p>内容</p>
+			</article>	
+			
+			<article id="barChart">
+				<h1>标准HTTP指令</h1>
+				<h2>basicauth</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/basicauth.md"}} </div>
+
+				<h2>bind</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/bind.md"}} </div>
+
+				<h2>browse</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/browse.md"}} </div>
+
+				<h2>errors</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/errors.md"}} </div>
+
+				<h2>expvar</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/expvar.md"}} </div>
+
+				<h2>ext</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/ext.md"}} </div>
+
+				<h2>fastcgi</h2>
+				<h2>gzip</h2>
+				<h2>header</h2>
+				<h2>import</h2>
+				<h2>index</h2>
+				<h2>internal</h2>
+				<h2>limits</h2>
+				<h2>log</h2>
+				<h2>markdown</h2>
+				<h2>mime</h2>
+				<h2>pprof</h2>
+				<h2>proxy</h2>
+				<h2>push</h2>
+				<h2>redir</h2>
+				<h2>rewrite</h2>
+				<h2>root</h2>
+				<h2>shutdown</h2>
+				<h2>startup</h2>
+				<h2>status</h2>
+				<h2>templates</h2>
+				<h2>timeouts</h2>
+				<h2>tls</h2>
+				<h2>websocket</h2>
+			</article>						
+			
+			<article id="radarChart">
+				<h1>写一个Caddy插件</h1>
+				<h2>简介</h2>
+				<pre data-type="javascript"><code>aaa</code></pre>
+			</article>			
+			
+			<article id="polarAreaChart">
+				<h1>DNS Providers</h1>
+				<h2>tls.dns.cloudflare</h2>
+				<h2>tls.dns.digitalocean</h2>
+				<h2>tls.dns.dnsimple</h2>
+				<h2>tls.dns.dnspod</h2>
+				<h2>tls.dns.dyn</h2>
+				<h2>tls.dns.exoscale</h2>
+				<h2>tls.dns.gandi</h2>
+				<h2>tls.dns.googlecloud</h2>
+				<h2>tls.dns.linode</h2>
+				<h2>tls.dns.namecheap</h2>
+				<h2>tls.dns.ovh</h2>
+				<h2>tls.dns.rackspace</h2>
+				<h2>tls.dns.rfc2136</h2>
+				<h2>tls.dns.route53</h2>
+				<h2>tls.dns.vultr</h2>
+
+				<p>Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.</p>
+			</article>
+			<article id="pieChart">
+				<h1>指令/中间件</h1>
+				<h2>http.authz</h2>
+				<h2>http.awslambda</h2>
+				<h2>http.cgi</h2>
+				<h2>http.cors</h2>
+				<h2>http.datadog</h2>
+				<h2>http.expires</h2>
+				<h2>http.filemanager</h2>
+				<h2>http.filter</h2>
+				<h2>http.git</h2>
+				<h2>http.hugo</h2>
+				<h2>http.ipfilter</h2>
+				<h2>http.jwt</h2>
+				<h2>http.login</h2>
+				<h2>http.mailout</h2>
+				<h2>http.minify</h2>
+				<h2>http.prometheus</h2>
+				<h2>http.proxyprotocol</h2>
+				<h2>http.ratelimit</h2>
+				<h2>http.realip</h2>
+				<h2>http.upload</h2>
+				<h2>net.host</h2>
+				<p>Pie charts are probably the most commonly used chart there are. They are divided into segments, the arc of each segment shows a the proportional value of each piece of data.</p>
+			</article>
+			<article id="doughnutChart">
+				<h1>Event Hooks</h1>
+				<h2>hook.service</h2>
+				<h2>Server Types</h2>
+
+				<p>Doughnut charts are similar to pie charts, however they have the centre cut out, and are therefore shaped more like a doughnut than a pie!</p>
+			</article>
+			<article id="generalIssues">
+				<h1>Server Types</h1>
+				<h2>dns</h2>
+				<h2>net</h2>
+				
+				<h2>浏览器支持</h2>
+				
+				<h2>Bugs &amp; issues</h2>
+			</article>
+		</div>
+	</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/prettify.js"></script>
+	<script src="js/chart.js"></script>
+	<script>
+	$(document).ready(function(){
+		var $nav = $("nav dl");
+		$("article").each(function(){
+			var $el = $(this);
+			var $h1 = $el.find("h1");
+			var sectionTitle = $h1.html();
+			var articleId = $el.attr("id");
+			var $dt = $("<dt><a href=\"#"+articleId +"\">"+sectionTitle+"</a></dt>");
+			
+			$dt.find("a").on("click",function(e){
+				e.preventDefault();
+				$('html,body').animate({scrollTop: $h1.offset().top},400);
+			});
+			
+			$nav.append($dt);
+			
+			var $subtitles = $el.children("h2");
+
+			$subtitles.each(function(){
+				var $h2 = $(this);
+				var title = $h2.text();
+				var newID = articleId + "-" +camelCase(title);
+				$h2.attr("id",newID);
+				var $dd = $("<dd><a href=\"#" +newID + "\">" + title + "</a></dd>");
+				
+				$dd.find("a").on("click",function(e){
+					e.preventDefault();
+					$("a").removeClass('current');
+					$(this).addClass('current');
+					$('html,body').animate({scrollTop: $h2.offset().top},400);
+				})
+				$nav.append($dd);
+				
+			});
+			
+			var $articles = $el.find("article");
+			
+		});	
+		
+		prettyPrint();			
+		
+		function camelCase(str){			
+			var splitString = str.split(" ");
+			
+			var returnedCamel = splitString[0].toLowerCase();
+			
+			for (var i=1; i<splitString.length; i++){
+				returnedCamel += splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1).toLowerCase();
+			}
+			
+			return returnedCamel;
+			
+		} 
+	});
+	</script>
+	
+</html>
