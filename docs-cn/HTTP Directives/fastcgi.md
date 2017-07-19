@@ -1,5 +1,6 @@
 # http.fastcgi
 fastcgi proxies requests to a FastCGI server. Even though the most common use for this directive is to serve PHP sites, it is by default a generic FastCGI proxy. This directive may be used multiple times with different request paths.
+fastcgi代理请求到FastCGI服务器，尽管这个指令最常见的用法是为PHP站点提供服务，默认情况下是通用的FastCGI代理，该指令可以使用不同的请求路径多次使用。
 
 ## 语法
 ```
@@ -47,18 +48,17 @@ index index.php
 You do not need to specify the individual configuration settings for a preset. However, you can overwrite its individual settings if needed by declaring them manually.
 
 ## 例子
-Proxy all requests to a FastCGI responder listening at 127.0.0.1:9000:
-
+在127.0.0.1:9000处理FastCGI响应的所有请求：
 ```
 fastcgi / 127.0.0.1:9000
 ```
-Forward all requests in /blog to a PHP site (like WordPress) being served with php-fpm:
 
+Forward all requests in /blog to a PHP site (like WordPress) being served with php-fpm:
 ```
 fastcgi /blog/ 127.0.0.1:9000 php
 ```
-With custom FastCGI configuration:
 
+使用自定义FastCGI配置：
 ```
 fastcgi / 127.0.0.1:9001 {
 	split .html
