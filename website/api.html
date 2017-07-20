@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Caddy 中文文档</title>
+		<title>Caddy API中文文档</title>
 		<link href="css/styles.css" rel="stylesheet">
 	</head>
 	<body>
@@ -16,15 +16,20 @@
 		</nav>
 		
 		<div id="contentWrapper">
-			<h1 id="mainHeader">Caddy 中文文档</h1>
-			<h2 id="introText">此文档包含了用Caddy创建漂亮图表的所有知识。</h2>
+			<h1 id="mainHeader">Caddy API中文文档</h1>
+			<h2 id="introText">Caddy是一个可以自动创建HTTPS功能的HTTP/2网站服务器</h2>
+			<article id="about">
+				<h1>关于</h1>
+				<h2>关于</h2>
+				<h2>交流：QQ群：123456</h2>
+
+			</article>
+
 			<article id="gettingStarted">
 				<h1>使用Caddy</h1>
 				<h2>Getting Started →</h2>
 				<h2>命令行界面</h2>
 				<h2>Caddyfile 语法</h2>
-				<p>内容<code>Chart</code>变量。</p>
-				<pre data-type="html"><code>……。</code></pre>
 			</article>	
 			
 			<article id="lineChart">
@@ -34,11 +39,9 @@
 				<h2>MITM Detection</h2>
 				<h2>占位符</h2>
 				<h2>Template Actions</h2>
-				
-				<p>内容</p>
 			</article>	
 			
-			<article id="barChart">
+			<article id="directives">
 				<h1>标准HTTP指令</h1>
 				<h2>basicauth</h2>
 				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/basicauth.md"}} </div>
@@ -59,8 +62,14 @@
 				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/ext.md"}} </div>
 
 				<h2>fastcgi</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/fastcgi.md"}} </div>
+
 				<h2>gzip</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/gzip.md"}} </div>
+
 				<h2>header</h2>
+				<div class="content-detail">{{.Markdown "../docs-cn/HTTP Directives/header.md"}} </div>
+
 				<h2>import</h2>
 				<h2>index</h2>
 				<h2>internal</h2>
@@ -160,10 +169,10 @@
 	$(document).ready(function(){
 		var $nav = $("nav dl");
 		$("article").each(function(){
-			var $el = $(this);
-			var $h1 = $el.find("h1");
+			var _this = $(this);
+			var $h1 = _this.find("h1");
 			var sectionTitle = $h1.html();
-			var articleId = $el.attr("id");
+			var articleId = _this.attr("id");
 			var $dt = $("<dt><a href=\"#"+articleId +"\">"+sectionTitle+"</a></dt>");
 			
 			$dt.find("a").on("click",function(e){
@@ -173,15 +182,20 @@
 			
 			$nav.append($dt);
 			
-			var $subtitles = $el.children("h2");
+			var $subtitles = _this.children("h2");
 
 			$subtitles.each(function(){
 				var $h2 = $(this);
 				var title = $h2.text();
-				var newID = articleId + "-" +camelCase(title);
+				var newID = articleId + "-" + camelCase(title);
 				$h2.attr("id",newID);
 				var $dd = $("<dd><a href=\"#" +newID + "\">" + title + "</a></dd>");
 				
+				// 替换h2
+				var otherH1 = $h2.next('.content-detail').find('h1');
+				$h2.text(otherH1.text());
+				otherH1.remove();
+
 				$dd.find("a").on("click",function(e){
 					e.preventDefault();
 					$("a").removeClass('current');
@@ -192,7 +206,7 @@
 				
 			});
 			
-			var $articles = $el.find("article");
+			var $articles = _this.find("article");
 			
 		});	
 		

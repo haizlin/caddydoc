@@ -271,6 +271,7 @@ pre:before {
 
 .content-detail{
   background: #f7f6f6;
+  border-bottom: 1px solid #6f77a5;
 }
 
 .content-detail h1{
