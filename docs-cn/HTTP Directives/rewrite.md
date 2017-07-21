@@ -46,7 +46,7 @@ if关键字是书写规则的强大方式，它的格式是a cond b，其中值a
 * `not_match` = a不匹配b，其中b是个正则表达式
 
 # 例子
-将所有内容重写为/index.php。 （rewrite / /index.php{uri} 只匹配/）
+将所有内容重写为/index.php，（rewrite / /index.php{uri} 只匹配/）
 
 ```
 rewrite / {
