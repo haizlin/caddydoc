@@ -1,6 +1,6 @@
 # http.timeouts
 timeouts configures Caddy's HTTP timeouts:
-timeouts是针对Caddy的HTTP超时配置：
+timeouts 针对Caddy的HTTP超时配置：
 
 Read: Maximum duration for reading the entire request, including the body.
 Read Header: The amount of time allowed to read request headers.
@@ -11,15 +11,13 @@ Timeouts are an important way to maintain server connectivity in the face of bug
 Because timeouts apply to an entire HTTP server which may serve multiple sites defined in your Caddyfile, the timeout values for each site will be reduced to their minimum values (with 0 or none being the lowest) across all sites that share that server. It's a good idea to keep your timeouts the same or just set them on one site to avoid confusion. A timeout set on one site will apply to all sites that share that server.
 
 ## 语法
-To set all the timeouts to the same value:
-
+将所有超时设置为相同的值：
 ```
 timeouts val
 ```
+*  **val** 适用于所有超时的持续时间值（例如30s，2m30s，5m，1h），设置为0或无，以禁用以前启用的超时。
 
-val is a duration value (e.g. 30s, 2m30s, 5m, 1h) that will apply to all timeouts. Set to  0 or none to disable timeouts that were previously enabled.
-You can also configure each timeout individually:
-
+你还可以单独配置每个超时：
 ```
 timeouts {
 	read   val
@@ -38,7 +36,7 @@ Set all timeouts to 1 minute:
 timeouts 1m
 ```
 
-Set custom read timeout and write timeouts:
+设置自定义读取和写入超时：
 
 ```
 timeouts {
