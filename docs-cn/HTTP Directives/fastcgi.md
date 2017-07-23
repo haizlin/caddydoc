@@ -1,6 +1,5 @@
 # http.fastcgi
-fastcgi proxies requests to a FastCGI server. Even though the most common use for this directive is to serve PHP sites, it is by default a generic FastCGI proxy. This directive may be used multiple times with different request paths.
-fastcgi代理请求到FastCGI服务器，尽管这个指令最常见的用法是为PHP站点提供服务，默认情况下是通用的FastCGI代理，该指令可以使用不同的请求路径多次使用。
+fastcgi代理请求到FastCGI服务器，尽管这个指令最常见的用法是为PHP站点提供服务，默认情况下是通用的FastCGI代理，该指令可以多次使用不同的请求路径。
 
 ## 语法
 ```
@@ -34,10 +33,11 @@ connect_timeout is the time allowed for connecting to the backend. Must be a dur
 read_timeout is the time allowed to read a response from the backend. Must be a duration value.
 send_timeout is the time allowed to send a request to the backend. Must be a duration value.
 
-## Presets
+## 预设
 A preset is shorthand for a certain FastCGI configuration. These presets are available:
+预设是一个快速的FastCGI配置，这些预置可用如下：
 
-php is shorthand for:
+PHP简写为：
 
 ```
 ext   .php
@@ -46,6 +46,8 @@ index index.php
 ```
 
 You do not need to specify the individual configuration settings for a preset. However, you can overwrite its individual settings if needed by declaring them manually.
+你不需要为预置指定单独的配置设置，但是，如果需要，可以手动声明它的单独设置。
+您不需要为预设指定各个配置设置。 但是，如果需要，可以手动声明它们来覆盖其各个设置。
 
 ## 例子
 在127.0.0.1:9000处理FastCGI响应的所有请求：
@@ -53,7 +55,7 @@ You do not need to specify the individual configuration settings for a preset. H
 fastcgi / 127.0.0.1:9000
 ```
 
-Forward all requests in /blog to a PHP site (like WordPress) being served with php-fpm:
+将/blog中的所有请求转发到php-fpm提供的PHP站点（如WordPress）：
 ```
 fastcgi /blog/ 127.0.0.1:9000 php
 ```
@@ -65,6 +67,7 @@ fastcgi / 127.0.0.1:9001 {
 }
 ```
 With PHP preset, but overriding the ext property:
+使用PHP预设，但覆盖ext属性：
 
 ```
 fastcgi / 127.0.0.1:9001 php {
