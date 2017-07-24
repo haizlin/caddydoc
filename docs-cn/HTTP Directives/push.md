@@ -6,7 +6,9 @@ Server push can accelerate page loads by sending resources that the server knows
 Caddy knows which resources to push either from rules you provide in the Caddyfile or from Link headers coming from some upstream.
 
 ## 语法
+```
 push
+```
 Enables server push for any request by reading the Link HTTP header of the response. Useful if you're proxying to a backend app with proxy or fastcgi, for example, that sets the Link headers for preload purposes.
 
 To configure a basic push rule:

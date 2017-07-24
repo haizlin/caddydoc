@@ -8,11 +8,15 @@ Note that shutdown commands will not execute if Caddy is force-terminated, for e
 Even if this directive is shared by more than one host, the command will only execute once per appearance in the Caddyfile.
 
 ## 语法
+```
 shutdown command
+```
 
 command is the command to execute; it may be followed by arguments
 
 ## 例子
 Stop php-fpm when the server quits:
 
+```
 shutdown /etc/init.d/php-fpm stop
+```
