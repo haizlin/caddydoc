@@ -12,8 +12,6 @@ header path name value
 *  **name** 是字段的名称，前缀用连字符(-)删除头或加号(+)来追加而不是覆盖。
 *  **value** 是字段的值, 也可以使用[placeholders(占位符)](../placeholders.md)插入动态值。
 
-
-This directive can be used multiple times, or you can group multiple custom header fields for the same path:
 这个指令可以多次使用，也可以在相同的路径分组多个自定义头字段：
 
 ```

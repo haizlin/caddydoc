@@ -1,30 +1,27 @@
 # http.redir
-redir sends the client an HTTP redirect status code if the URL matches the specified pattern. It is also possible to make a redirect conditional.
-如果URL匹配指定的模式，redir会向客户端发送HTTP重定向状态代码，也可以使重定向有条件。
+如果URL匹配指定的模式，redir会向客户端发送HTTP重定向状态码，也可以使重定向有条件。
 
 ## 语法
 ```
 redir from to [code]
 ```
+*  **from** 要匹配的请求路径（它必须完全匹配，除了/，这是一个全部）。
+*  **to** 要重定向到的路径（可以使用请求占位符）。
+*  **code** 用于响应HTTP的状态码，必须在[300-308]的之间（不包括306）。也可以是针对浏览器的meta标记重定向，默认状态码为301表示永久移动。
 
-from is the request path to match (it must match exactly, except for /, which is a catch-all).
-to is the path to redirect to (may use request placeholders).
-code is the HTTP status code to respond with; must be in the range [300-308] excluding 306. May also be meta to issue meta tag redirect for browsers. The default status code is 301 Moved Permanently.
-To create a permanent, "catch-all" redirect, omit the from value:
-
+要创建永久的"catch-all"重定向，请忽略from值：
 ```
 redir to
 ```
 
-If you have a lot of redirects, share a redirect code by making a table:
-
+如果你有很多重定向，可以通过制表来共享重定向码：
 ```
 redir [code] {
 	from to [code]
 }
 ```
 
-Each line defines a redirect and may optionally overwrite the redirect code defined at the top of the table. If no redirect code is specified, the default is used.
+每行都可以定义一个重定向，并可以可选地覆盖在表顶部定义的重定向码，如果未指定重定向代码，则使用默认值。
 
 一组重定向也可以有条件的：
 ```
@@ -35,26 +32,24 @@ redir [code] {
 }
 ```
 
-if specifies a rewrite condition. Multiple ifs are AND-ed together by default. a and b are any string and may use request placeholders. cond is the condition, with possible values explained in rewrite (which also has an if statement).
-if_op specifies how the ifs are evaluated; the default is and.
-Preserving Path
-By default, redirects are from precisely matching paths to the precise location you've defined. You can preserve the path or other portions of the request URL by using replaceable values, such as {uri} or {path}, in any "to" argument. Only request placeholders are supported.
+*  **if** 指定重写的条件，默认情况下，多个ifs都是和的关系。 a和b是任意字符串，可以使用请求占位符，cond是条件，可能的值在重写中说明（也有一个if语句）。
+*  **if_op** 指定如何确定ifs的关系，默认是和。
+
+## 保护路径
+默认情况下，重定向是从精确匹配的路径到你定义的精确位置，你可以在任意"to"的参数中使用可替换值（例如{uri}或{path}）来保留请求URL的路径或其他部分，仅支持请求占位符。
 
 ## 例子
-When a request comes in for /resources/images/photo.jpg, redirect to /resources/images/drawing.jpg with HTTP 307 (Temporary Redirect) status code:
-
+当请求/resources/images/photo.jpg时，使用HTTP 307状态码（临时重定向）重定向到/resources/images/drawing.jpg：
 ```
 redir /resources/images/photo.jpg /resources/images/drawing.jpg 307
 ```
 
-Redirect all requests to https://newsite.com while preserving the request URI:
-
+将所有请求重定向到https://newsite.com，同时保留请求的URI：
 ```
 redir https://newsite.com{uri}
 ```
 
-Defining multiple redirections that share a 307 status code, except the last one:
-
+定义多个重定向的307状态码，除了最后一个：
 ```
 redir 307 {
 	/foo     /info/foo
@@ -63,8 +58,7 @@ redir 307 {
 }
 ```
 
-Redirect only if the forwarded protocol is HTTP:
-
+只有转发协议是HTTP时才重定向：
 ```
 redir 301 {
 	if {>X-Forwarded-Proto} is http

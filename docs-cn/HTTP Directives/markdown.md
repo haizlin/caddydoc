@@ -97,7 +97,6 @@ markdown /blog {
 }
 ```
 
-With custom templates:
 使用自定义模板：
 
 ```

@@ -131,7 +131,6 @@ proxy /stream localhost:8080 {
 ```
 
 代理所有请求除了/static或/robots.txt之外的内容
-
 ```
 proxy / backend:1234 {
 	except /static /robots.txt

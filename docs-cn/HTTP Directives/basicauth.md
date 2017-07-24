@@ -15,7 +15,7 @@ basicauth path username password
 *  **username** 用户名  
 *  **password** 密码  
 
-这个语法对于使用默认的范围标志 “Restricted（受限）”来保护单个文件或基本路径/目录是非常方便的，如果要保护多个资源或指定范围，可以使用以下的写法：
+这个语法对于使用默认的范围标志 "Restricted（受限）"来保护单个文件或基本路径/目录是非常方便的，如果要保护多个资源或指定范围，可以使用以下的写法：
 
 ```
 basicauth username password {

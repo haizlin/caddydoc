@@ -1,11 +1,16 @@
 :2017 {
-	# root /website
+	# root website
 	templates / .html
 
 	markdown / {
 		ext .md
 		css /css/blog.css
 		js  /js/blog.js
+	}
+	
+	rewrite / {
+		r  (.*)
+		to /website/{1}
 	}
 
 	errors errors.log
