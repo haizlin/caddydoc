@@ -19,11 +19,7 @@ internal path
 internal /internal
 ```
 
-Part of an example Caddyfile that protects some resources but allows a proxy to grant access to them (the service listening on :9000 must set X-Accel-Redirect):
-保护一些资源，但允许代理授予访问权限的示例Caddyfile的一部分（服务侦听9000端口必须设置X-Accel-Redirect）：
-Caddyfile保护的一些部分资源
-但允许代理授权访问它们（服务侦听9000端口必须设置X-Accel-Redirect）：
-
+Caddyfile保护的部分资源，但允许代理授权访问它们（服务侦听9000端口必须设置X-Accel-Redirect）：
 ```
 internal /internal
 proxy    /redirect http://localhost:9000
