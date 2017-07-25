@@ -1,7 +1,7 @@
 # shutdown
-shutdown 是在服务器退出时执行的命令，这对于执行清理或停止像php-fpm这样的后台进程很有用。 （另见[startup](./startup.md)）
+shutdown 是在服务器退出时执行的命令，这对于执行清理或停止像php-fpm这样的后台进程很有用。 （另请参见[startup](./startup.md)）
 
-在关机时执行的每个命令都是阻塞的，命令的输出和错误分别转到stdout和stderr，没有stdin
+在关机时执行的每个命令都是阻塞的，命令的输出和错误分别转到stdout和stderr，没有stdin。
 
 请注意，如果Caddy被强制终止，例如使用操作系统提供的"强制退出"功能，则shutdown命令将不会执行。 但是，典型的SIGINT（Ctrl+C）将允许执行shutdown命令。
 
@@ -11,7 +11,7 @@ shutdown 是在服务器退出时执行的命令，这对于执行清理或停�
 ```
 shutdown command
 ```
-*  **command** 执行的命令，后面可能带有参数
+*  **command** 一个可执行的命令，它的后面可以带有参数
 
 ## 例子
 当服务器退出时停止php-fpm：
