@@ -1,18 +1,20 @@
 # shutdown
-shutdown executes a command when the server exits. This is useful for performing cleanup or stopping a background process like php-fpm. (Also see startup.)
+shutdown 是在服务器退出时执行的命令，这对于执行清理或停止像php-fpm这样的后台进程很有用。 （另请参见[startup](./startup.md)）
 
-Each command that is executed at shutdown is blocking. The output and error of the command go to stdout and stderr, respectively. There is no stdin.
+在关机时执行的每个命令都是阻塞的，命令的输出和错误分别转到stdout和stderr，没有stdin。
 
-Note that shutdown commands will not execute if Caddy is force-terminated, for example, by using a "Force Quit" feature provided by your operating system. However, a typical SIGINT (Ctrl+C) will allow the shutdown commands to execute.
+请注意，如果Caddy被强制终止，例如使用操作系统提供的"强制退出"功能，则shutdown命令将不会执行。 但是，典型的SIGINT（Ctrl+C）将允许执行shutdown命令。
 
-Even if this directive is shared by more than one host, the command will only execute once per appearance in the Caddyfile.
+尽管这个指令可以多个主机共享，该命令只会在Caddyfile中每次出现时执行一次。
 
 ## 语法
+```
 shutdown command
-
-command is the command to execute; it may be followed by arguments
+```
+*  **command** 一个可执行的命令，它的后面可以带有参数
 
 ## 例子
-Stop php-fpm when the server quits:
-
+当服务器退出时停止php-fpm：
+```
 shutdown /etc/init.d/php-fpm stop
+```

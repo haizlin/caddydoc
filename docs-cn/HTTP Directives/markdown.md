@@ -62,8 +62,7 @@ The front matter fields "author", "copyright", "description", and "subject" will
 Markdown Templates
 Template files are just HTML files with template tags, called actions, that can insert dynamic content depending on the file being served. The variables defined in metadata can be accessed from the templates like {{.Doc.variable}} where 'variable' is the name of the variable. The variable .Doc.body holds the body of the markdown file.
 
-Here is a simple example template (contrived):
-
+这是一个简单的示例模板（随意写的）：
 ```
 <!DOCTYPE html>
 <html>
@@ -98,7 +97,6 @@ markdown /blog {
 ```
 
 使用自定义模板：
-
 ```
 markdown /blog {
 	template default.html
