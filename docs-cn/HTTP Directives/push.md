@@ -35,26 +35,22 @@ method specifies the method for the synthetic request that is made to initiate t
 header adds a header to the synthetic request that is made to initiate the push; can be specified multiple times. It consists of a field name and a value. Pseudo-header fields are not allowed.
 
 ## 例子
-Enable server push for all requests using Link headers:
-
+使用Link头启用服务器推送所有请求：
 ```
 push
 ```
 
-Push Google Analytics script for all requests (not cache-aware):
-
+针对所有请求推送Google Analytics脚本（不是缓存）：
 ```
 push / /ga.js
 ```
 
-Push a couple CSS files for requests to the home page:
-
+将两个CSS文件推送到主页：
 ```
 push /index.html /common.css /home.css
 ```
 
-Push many resources to the home page:
-
+将多个资源推送到主页：
 ```
 push /index.html {
     /resources/css/common.css
@@ -66,8 +62,8 @@ push /index.html {
     /resources/images/background.jpg
 }
 ```
-Specify a method and header for all push requests:
 
+指定所有推送请求的方法和头：
 ```
 push {
     method HEAD
