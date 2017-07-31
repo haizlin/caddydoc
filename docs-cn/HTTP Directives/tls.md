@@ -1,19 +1,23 @@
 # tls
-tls configures HTTPS connections. Since HTTPS is enabled automatically, this directive should only be used to deliberately override default settings. Use with care, if at all.
+tls配置HTTPS的连接，由于HTTPS是自动启用的，因此该指令只能用于有意覆盖默认设置，请谨慎使用，如果有的话。
 
 Caddy supports SNI (Server Name Indication), so you can serve multiple HTTPS sites from the same port on your machine. In addition, Caddy implements OCSP stapling for all qualifying certificates. Caddy also automatically rotates all TLS session ticket keys periodically.
+Caddy支持SNI（服务器名称指示），因此您可以从机器上的同一端口提供多个HTTPS站点。 此外，凯迪为所有合格证书实施OCSP装订。 凯蒂还会自动轮换所有TLS会话票据密钥。
 
 The tls directive will ignore sites that are explicitly defined to be http:// or are on port 80. This allows you to use the tls directive in a server block that is shared with both HTTP and HTTPS sites.
+tls指令将忽略明确定义为http：//或在端口80上的站点。这允许您在与HTTP和HTTPS站点共享的服务器块中使用tls指令。
 
 If not all the hostnames are not known when starting the server, you can use the On-Demand TLS feature, which issues certificates during the TLS handshake rather than at startup.
+如果在启动服务器时并不是所有的主机名都不知道，那么您可以使用按需TLS功能，该功能在TLS握手期间发出证书，而不是在启动时发出证书。
 
 Caddy ships with sane defaults for cipher suites, curves, key types, and protocols. Their exact selection and ordering may change at any time with new releases. You probably do not need to change them yourself. Adjust the TLS configuration at your own risk.
+Caddy对于密码套件，曲线，密钥类型和协议都有合理的默认值。 他们的确切选择和排序可能随着新版本而改变。 你可能不需要自己改变。 调整TLS配置自担风险。
 
 ## 语法
 ```
 tls off
 ```
-Disables TLS for the site. Not recommended unless you have a good reason. With TLS off, automatic HTTPS is also disabled, so the default port (2015) will not be changed.
+不推荐禁用站点的TLS，除非你有一个很好的理由。 关闭TLS，自动HTTPS也被禁用，因此默认端口（2015）将不会更改。
 
 ```
 tls email
@@ -21,12 +25,10 @@ tls email
 email is the email address to use with which to generate a certificate with a trusted CA. By providing an email here you will not be prompted when you run Caddy.
 Although the above syntax is not needed to enable TLS, it allows you to specify the email address used for your CA account, instead of prompting for one or using another one from a previous run.
 
-To use Caddy with your own certificate and key:
-
+要使用Caddy自己的证书和密钥：
 ```
 tls cert key
 ```
-
 cert is the certificate file. If the certificate is signed by a CA, this certificate file should be a bundle: a concatenation of the server's certificate followed by the CA's certificate (root certificate usually not necessary).
 key is the server's private key file which matches the certificate file.
 You can use this directive multiple times to specify multiple certificate and key pairs.
