@@ -16,16 +16,15 @@ markdown [basepath] {
 *  **css** 表示下一个参数是要在页面上使用的CSS文件。
 *  **js** 表示下一个参数是要包含在页面中的JavaScript文件。
 *  **file** 添加到页面中的JS或CSS文件。
-*  **template** 定义了指定名称的模板位于指定的路径，如果要指定默认模板，请忽略名称，Markdown文件可以使用其前面的名称来选择一个模板。
+*  **template** 定义了指定名称的模板位于指定的路径，如果要指定默认模板，请忽略名称，Markdown文件可以使用Front Matter的名称来选择一个模板。
 *  **templatedir** 将默认路径设置为在列出模板时使用的给定默认路径。
 
 你可以多次使用js和css参数将更多文件添加到默认模板，如果你想接受默认值，你完全可以省略大括号。
 
-## 前页（文档元数据）
-Markdown files may begin with front matter, which is a specially-formatted block of metadata about the file. For example, it could describe the HTML template to use to render the file, or define the contents of the title tag. Front matter can be in YAML, TOML, or JSON formats.
-Markdown文件可以从前页开始，这是一个特殊格式的文件元数据块。 例如，它可以描述用于呈现文件的HTML模板，或者定义标题标签的内容。 前端可以是YAML，TOML或JSON格式。
+## Front Matter（文档元数据）
+Markdown文件可以从Front Matter开始，这是一个特殊格式的文件元数据块。 例如，它可以描述用于呈现文件的HTML模板，或者定义标题标签的内容，Front Matter可以是YAML，TOML或JSON格式。
 
-TOML格式开始和结束使用+++：
+TOML Front Matter 开始和结束使用+++：
 ```
 +++
 template = "blog"
@@ -52,10 +51,9 @@ JSON只是{和}：
 }
 ```
 
-前端字段 "author", "copyright", "description"和"subject"将使用在渲染页面的`<meta>`标签上。
+Front Matter字段 "author", "copyright", "description"和"subject"将使用在渲染页面的`<meta>`标签上。
 
 ## Markdown模板
-Template files are just HTML files with template tags, called actions, that can insert dynamic content depending on the file being served. The variables defined in metadata can be accessed from the templates like {{.Doc.variable}} where 'variable' is the name of the variable. The variable .Doc.body holds the body of the markdown file.
 模板文件只是具有模板标签的HTML文件，称为操作，可以根据正在提供的文件插入动态内容。 可以从`{{.Doc.variable}}`之类的模板访问元数据中定义的变量，其中"variable"是变量的名称，这个变量`.Doc.body`保存markdown文件的正文。
 
 这是一个简单的示例模板（随意写的）：
@@ -72,9 +70,7 @@ Template files are just HTML files with template tags, called actions, that can 
 	</body>
 </html>
 ```
-Along with these template actions, all the standard Caddy template actions are available to you in Markdown templates. Be sure to sanitize anything you render as HTML (use the html, js, and urlquery functions)!
-除了这些模板操作，您还可以在Markdown模板中使用所有标准的Caddy模板操作，确保清理HTML中呈现的任何内容（使用html，js和urlquery函数）！
-
+除了这些模板操作，你还可以在Markdown模板中使用所有标准的Caddy模板操作，确保清理HTML中呈现的任何内容（使用html，js和urlquery函数）！
 
 ## 例子
 在没有特殊格式的情况下，在/blog中启用Markdown页面（假设.md是Markdown扩展名）：
