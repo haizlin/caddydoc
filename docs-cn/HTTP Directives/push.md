@@ -4,6 +4,7 @@ push 启用并配置HTTP/2服务器推送。
 Server push can accelerate page loads by sending resources that the server knows the client will need, but has not yet asked for. It is not a replacement for WebSockets. It must also be configured carefully, especially with regards for client-side caching, or pushing can actually decrease performance. If a client caches a resource after the first time it is pushed, subsequent pushes of the same resource are unnecessary.
 
 Caddy knows which resources to push either from rules you provide in the Caddyfile or from Link headers coming from some upstream.
+Caddy知道哪些资源可以从Caddyfile中提供的规则或来自某个上游的Link头中推出。
 
 ## 语法
 ```
@@ -12,14 +13,14 @@ push
 
 Enables server push for any request by reading the Link HTTP header of the response. Useful if you're proxying to a backend app with proxy or fastcgi, for example, that sets the Link headers for preload purposes.
 
-To configure a basic push rule:
-
+配置基本推送的规则：
 ```
 push path [resources...]
 ```
 
-path is the base path of requests which to apply this rule.
+*  **path** 应用这个规则请求的基本路径。
 resources... is a space-separated list of resources to push. If no resources are specified, then only Link headers will be used to know push assets.
+*  **resources...** 是一个空格分隔的资源推送列表，如果没有指定任何资源，那么只有Link头将被用来知道推送资产。
 To push many resources that won't fit on a single line or to change the method or headers of the synthetic request used to initiate the pushes, open a block:
 
 ```

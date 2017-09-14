@@ -19,7 +19,7 @@ fastcgi path endpoint [preset] {
 ```
 
 *  **path** 是在请求转发之前匹配的基本路径。
-endpoint is the address or Unix socket of the FastCGI server.
+*  **endpoint** 是FastCGI服务器的地址或Unix套接字。
 preset is an optional preset name (see below). You do not need to repeat a preset's individual settings when using a preset.
 directory specifies the root directory used by the FastCGI server if different from the root directory of the virtual host. Useful if the FastCGI server is on a different server, chroot-jailed, and/or containerized.
 ext specifies the extension which, if the request URL has it, would proxy the request to FastCGI.
@@ -34,8 +34,7 @@ read_timeout is the time allowed to read a response from the backend. Must be a 
 send_timeout is the time allowed to send a request to the backend. Must be a duration value.
 
 ## 预设
-A preset is shorthand for a certain FastCGI configuration. These presets are available:
-预设是一个快速的FastCGI配置，这些预置可用如下：
+预设是一个快速的FastCGI配置，这些预设可用如下：
 
 PHP简写为：
 
@@ -46,7 +45,6 @@ index index.php
 ```
 
 You do not need to specify the individual configuration settings for a preset. However, you can overwrite its individual settings if needed by declaring them manually.
-你不需要为预置指定单独的配置设置，但是，如果需要，可以手动声明它的单独设置。
 您不需要为预设指定各个配置设置。 但是，如果需要，可以手动声明它们来覆盖其各个设置。
 
 ## 例子
